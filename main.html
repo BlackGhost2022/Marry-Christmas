@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #002f4b, #dc4225);
+            color: white;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .countdown {
+            text-align: center;
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            font-size: 1.5rem;
+            color: white;
+            opacity: 0.8;
+        }
+        .todo {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Christmas Countdown</h1>
+    <div class="countdown" id="countdown"></div>
+    <div class="todo">
+        <a href="todo.html" style="color: yellow; text-decoration: none;">Go to To-Do List</a>
+    </div>
+    <script>
+        // Countdown Timer
+        const countdownElement = document.getElementById("countdown");
+        const christmas = new Date("Dec 25, 2024 00:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = christmas - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            countdownElement.innerHTML = `${days} Days ${hours} Hrs ${minutes} Min ${seconds} Sec`;
+        }, 1000);
+
+        // Snowfall Effect
+        function createSnowflake() {
+            const snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+            snowflake.textContent = "❄";
+            snowflake.style.left = Math.random() * window.innerWidth + "px";
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
+            snowflake.style.fontSize = Math.random() * 10 + 10 + "px";
+            document.body.appendChild(snowflake);
+            setTimeout(() => snowflake.remove(), 5000);
+        }
+        setInterval(createSnowflake, 100);
+    </script>
+</body>
+</html>
