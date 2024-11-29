@@ -1,1 +1,0 @@
-I am a learner who has been trying to code with ni experience at all just my head and basic knowledge from Google. This is my first trial and i would like to get better by getting to learn more. Thank you and please have a happy holiday and marry Christmas 🤶 
